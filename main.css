@@ -140,3 +140,7 @@ h2 {font-size: 35pt;}
   to {opacity: 1}
 }
 
+
+.captext {position: absolute; top: 8px; right: 16px; transform: translate(65%, 70%); word-wrap: break-word;}
+
+
