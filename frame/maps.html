@@ -15,7 +15,7 @@
     <link href="mapcss.css" rel="stylesheet" />
     <style>
         body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:79%; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
 </head>
 <body>
@@ -26,11 +26,11 @@
 mapboxgl.accessToken = "pk.eyJ1Ijoid2lsbGlhbXd1MTIzMCIsImEiOiJjajZ2bjl5dm4xMm54MzJvNGsyZHF0YjFiIn0.FarZV4Y4imev3VjQQb460w";
 var map = new mapboxgl.Map({
     container: "map",
-    style: "mapbox://styles/williamwu1230/cj7k41sid2j0v2soboclq7dy0",
-    center: [151, -33.6],
+    style: "mapbox://styles/williamwu1230/cj7fuqy4535ny2rlsn1h4qlak",
+    center: [151, -33.7],
     zoom: 9,
     pitch: 60,
-    bearing:0
+    bearing:-10
 });
 
 map.on("load", function() {
@@ -70,7 +70,7 @@ map.on("load", function() {
                 "type": "identity"
             },
             // Make extrusions slightly opaque for see through indoor walls.
-            "fill-extrusion-opacity": 1
+            "fill-extrusion-opacity": 0.8
         }, 
     },'water');
 });
@@ -79,13 +79,5 @@ map.on("load", function() {
     
 <!--'place-city-lg-n','place-city-md-n','place-city-md-s','place-city-sm','place-islands','place-town','place-village','place-hamlet','place-suburb','place-neighbourhood','place-islets-archipelago-aboriginal','airport-label','waterway-label','water'-->
 
-</div>
-    <sidebar>
-        <h1>Data set G21 - Unpaid Assistance to a Person with a Disability</h1>
-        <p>The map shows the percentage of people among the total population who provide unpaid assistance to a person with a disability by postcode. The areas which have a deeper shade of red are those which have a greater percentage of people who provide unpaid assistance, the height of the region reflects how this percentage has increased between 2011 and 2016. This data shows how there is a growing inequality in the access to paid disability assistance between rural NSW and Sydney. Furthermore, within Sydney itself, we can see how the ‘latte line’ is somewhat reflected, and how there is an imbalance between the access to disability services within inner Sydney and outer Sydney. NSW governments need to address this issue by looking to improve make disability services more accessible by expanding their health services network to outer Sydney and rural NSW, while also improving socioeconomic conditions in the most disadvantaged communities.</p>
-        <br>
-        <br>
-        <img src="legend.jpg" alt="legend.jpg" class="center" width="80%">
-    </sidebar>    
-</body>
+  
 </html>
