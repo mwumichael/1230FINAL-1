@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js"></script>
+	<script src="data.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css" rel="stylesheet" />
+    <link href="mapcss.css" rel="stylesheet" />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<div id="map">
+</div>
+<script>
+mapboxgl.accessToken = "pk.eyJ1Ijoid2lsbGlhbXd1MTIzMCIsImEiOiJjajZ2bjl5dm4xMm54MzJvNGsyZHF0YjFiIn0.FarZV4Y4imev3VjQQb460w";
+var map = new mapboxgl.Map({
+    container: "map",
+    style: "mapbox://styles/williamwu1230/cj7fuqy4535ny2rlsn1h4qlak",
+    center: [151, -33.7],
+    zoom: 9,
+    pitch: 60,
+    bearing:-10
+});
+
+map.on("load", function() {
+
+    map.addLayer({
+        "id": "data",
+        "type": "fill-extrusion",
+        "source": {
+            // Geojson Data source used in vector tiles, documented at
+            // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
+            "type": "geojson",
+            "data": data
+        },
+        "paint": {
+            // See the Mapbox Style Spec for details on property functions
+            // https://www.mapbox.com/mapbox-gl-style-spec/#types-function
+            "fill-extrusion-color": {
+                // Get the fill-extrusion-color from the source "color" property.
+                "property": "Percentage",
+                "stops": [
+					[0.1, "white"],
+					[0.16, "dark red"]
+					]
+            },
+            "fill-extrusion-height": {
+                // Get fill-extrusion-height from the source "height" property.
+                "property": "Growth",
+                "stops": [
+					[0, 0],
+					[0.075, 60000]
+					]
+				
+            },
+            "fill-extrusion-base": {
+                // Get fill-extrusion-base from the source "base_height" property.
+                "property": "base_height",
+                "type": "identity"
+            },
+            // Make extrusions slightly opaque for see through indoor walls.
+            "fill-extrusion-opacity": 0.8
+        }, 
+    },'water');
+});
+</script>
+    
+    
+<!--'place-city-lg-n','place-city-md-n','place-city-md-s','place-city-sm','place-islands','place-town','place-village','place-hamlet','place-suburb','place-neighbourhood','place-islets-archipelago-aboriginal','airport-label','waterway-label','water'-->
+
+  
+</html>
