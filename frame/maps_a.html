@@ -76,28 +76,11 @@ map.on('load', function() {
             },
             'fill-extrusion-opacity': .6
         }
-    });
-     map.addLayer({
-         "id": "fromgrasshopper",
-         "type": "fill-extrusion",
-        "source": "test",
-        'paint': {
-                 'fill-extrusion-color' :'black' ,
-                 'fill-extrusion-height' : {
-                     'type': 'identity',
-                     'property': 'height'
-                 },
-                 'fill-extrusion-base' : {
-                     'type': 'identity',
-                     'property': 'base_height'
-                 },
-                  'fill-extrusion-opacity': .6
-             }
      });
      map.addLayer({
-         "id": "fromgrasshopper2",
+         "id": "test",
          "type": "fill-extrusion",
-         "source": "test",
+         "source":{"type": "polygon","coordinates": ""},
             'paint': {
                  'fill-extrusion-color' : {
                      'property': 'colour',

@@ -1,6 +1,6 @@
 // our token: pk.eyJ1Ijoid2lsbGlhbXd1MTIzMCIsImEiOiJjajZ2bjl5dm4xMm54MzJvNGsyZHF0YjFiIn0.FarZV4Y4imev3VjQQb460w
 //our style: mapbox://styles/williamwu1230/cj7fuqy4535ny2rlsn1h4qlak
-
+src="test.js"
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFkZWxlaW5lam9oYW5zb24iLCJhIjoiY2lzczduYzJ4MDZrODJucGh0Mm1xbmVxNCJ9.i7q4iT8FFgh_y5v4we5UhQ';
 var map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/light-v9',
@@ -65,26 +65,23 @@ map.on('load', function() {
             'fill-extrusion-opacity': .6
         }
     });
-    // map.addLayer({
-    //     "id": "fromgrasshopper",
-    //     "type": "fill-extrusion",
-    //     "source": "json-buildings",
-    //        'paint': {
-    //             'fill-extrusion-color' : {
-    //                 'property': 'colour',
-    //                 'type': 'identity'
-    //             },
-    //             'fill-extrusion-height' : {
-    //                 'type': 'identity',
-    //                 'property': 'height'
-    //             },
-    //             'fill-extrusion-base' : {
-    //                 'type': 'identity',
-    //                 'property': 'base_height'
-    //             },
-    //              //'fill-extrusion-opacity': .6
-    //         }
-    // });
+     map.addLayer({
+         "id": "test",
+         "type": "fill-extrusion",
+        "source":"test",
+        'paint': {
+                 'fill-extrusion-color' : '#aaa',
+                 'fill-extrusion-height' : {
+                     'type': 'identity',
+                     'property': 'height'
+                 },
+                 'fill-extrusion-base' : {
+                     'type': 'identity',
+                     'property': 'base_height'
+                 },
+                  'fill-extrusion-opacity': .6
+             }
+     });
     // map.addLayer({
     //     "id": "fromgrasshopper2",
     //     "type": "fill-extrusion",
